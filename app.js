@@ -5,12 +5,15 @@
   LunchCheckController.$inject = ['$scope'];
 
   function LunchCheckController($scope) {
-    $scope.name = "Vitalii";
+    $scope.name = "";
     $scope.finalMsg = "";
 
     $scope.inputCheck = function (str) {
-      let words = str.split(' ');
-      if (words.length > 3) {
+      let words = str.split('');
+      if (words.length === 0) {
+        $scope.finalMsg = "Please enter data first"
+      }
+      else if (words.length > 3) {
         $scope.finalMsg = "Too much!"
       } else {
         $scope.finalMsg = "Enjoy!"
